@@ -82,10 +82,10 @@ def main():
             st.write(response["choices"][0]["text"])
 
             # Update the history string
-            st.session_state.chat_history = st.session_state.chat_history + f"Human: {chat}\nAssistant: {response['choices'][0]['text']}\n"
+            st.session_state.chat_history = f"{st.session_state.chat_history}Human: {chat}\nAssistant: {response['choices'][0]['text']}\n"
 
             # Update the prompt history string
-            st.session_state.prompt_history = st.session_state.prompt_history + f"{chat} "
+            st.session_state.prompt_history = f"{st.session_state.prompt_history}{chat} "
 
             # Update the Overpass query. The query is enclosed by three backticks, denoting that is a code block.
             # does the response contain a query? If so, update the query
